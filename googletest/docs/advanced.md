@@ -104,13 +104,11 @@ If you already have a function or functor that returns `bool` (or a type that
 can be implicitly converted to `bool`), you can use it in a *predicate
 assertion* to get the function arguments printed for free:
 
-| Fatal assertion      | Nonfatal assertion   | Verifies                    |
-| -------------------- | -------------------- | --------------------------- |
-| `ASSERT_PRED1(pred1, | `EXPECT_PRED1(pred1, | `pred1(val1)` is true       |
-: val1);`              : val1);`              :                             :
-| `ASSERT_PRED2(pred2, | `EXPECT_PRED2(pred2, | `pred2(val1, val2)` is true |
-: val1, val2);`        : val1, val2);`        :                             :
-| `...`                | `...`                | ...                         |
+| Fatal assertion                   | Nonfatal assertion                | Verifies                    |
+| --------------------------------- | --------------------------------- | --------------------------- |
+| `ASSERT_PRED1(pred1, val1);`      | `EXPECT_PRED1(pred1, val1)`       | `pred1(val1)` is true       |
+| `ASSERT_PRED2(pred2, val1, val2);`| `EXPECT_PRED2(pred2, val1, val2)` | `pred2(val1, val2)` is true |
+| `...`                             | `...`                             | ...                         |
 
 In the above, `predn` is an `n`-ary predicate function or functor, where `val1`,
 `val2`, ..., and `valn` are its arguments. The assertion succeeds if the
